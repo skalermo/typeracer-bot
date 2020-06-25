@@ -20,12 +20,12 @@ something like this:
 $ export PATH=$PATH:/path/to/directory/of/downloaded/executable
 ```
 
-- after that you should able to successfully run
+- after that you should be able to successfully run
 ```console
 $ python main.py
 ```
 
-Note: script only opens Firefox at TypeRacer page and plays 1 game.
+Note: script opens Firefox at TypeRacer page and only plays 1 game.
 
 ## Anti Bot
 
