@@ -25,7 +25,12 @@ $ export PATH=$PATH:/path/to/directory/of/downloaded/executable
 $ python main.py
 ```
 
-Note: script opens Firefox at TypeRacer page and only plays 1 game.
+## GUI
+
+Recently there has been control panel (PySide2) added to the project. It should make user experience more comfortable.
+Here is a screenshot of how it looks like.
+
+![](assets/gui_example.png)
 
 ## Anti Bot
 
