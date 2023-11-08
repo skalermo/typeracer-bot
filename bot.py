@@ -4,6 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 from pynput.keyboard import Controller
 import pyautogui
+from selenium.webdriver.common.by import By
 
 
 class Bot:
@@ -21,7 +22,7 @@ class Bot:
 
         self.text_to_type = ''
 
-        self.driver = webdriver.Firefox(firefox_profile=webdriver.FirefoxProfile())
+        self.driver = webdriver.Firefox()
         self.driver.set_window_size(1200, 800)
         self.driver.set_window_position(0, 0)
         self.driver.switch_to.window(self.driver.current_window_handle)
@@ -35,23 +36,14 @@ class Bot:
             self.driver.close()
 
     def get_text(self):
-        element = self.driver.find_element_by_class_name('mainViewport')
+        element = self.driver.find_element(By.CLASS_NAME, 'mainViewport')
         try:
-            element = element.find_element_by_class_name('gameView')
+            element = element.find_element(By.CLASS_NAME, 'gameView')
         except NoSuchElementException:
             return ''
 
-        element = element.find_element_by_class_name('inputPanel')
-        ids = element.find_elements_by_xpath('//*[@id]')
-
-        text = ''
-        for ii in ids:
-            if ii.tag_name == 'td':
-                etx = ii.text.find('change display format')
-                stx = ii.text.rfind('0 wpm') + 6
-                text = ii.text[stx:etx]
-                break
-        self.text_to_type = text
+        element = element.find_element(By.CLASS_NAME, 'inputPanel')
+        self.text_to_type = element.text.split('\n')[0]
         self._calc_typing_delay()
 
     def start_race(self):
@@ -78,7 +70,7 @@ class Bot:
     def _focus_on_input_box(self):
         last_pos = pyautogui.position()
         pyautogui.click(100, 100)
-        element = self.driver.find_element_by_class_name('txtInput')
+        element = self.driver.find_element(By.CLASS_NAME, 'txtInput')
         element.click()
         pyautogui.moveTo(*last_pos)
 
