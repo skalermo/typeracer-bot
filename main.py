@@ -18,6 +18,7 @@ def main():
     ctrl = Controller(app, model, ui)
     ui.getTextBtn.clicked.connect(ctrl.get_text)
     ui.startRaceBtn.clicked.connect(ctrl.start_race)
+    ui.solveChallengeBtn.clicked.connect(ctrl.solve_challenge)
     ui.closeAll.clicked.connect(ctrl.close_all)
     ui.speedSlider.valueChanged.connect(ctrl.speed_changed_slider)
     ui.speedLine.textChanged.connect(ctrl.speed_changed_editText)
