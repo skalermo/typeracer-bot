@@ -105,7 +105,7 @@ class Bot:
         button.click()
         
     def solve_challenge(self):
-        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.CLASS_NAME, 'typingChallengeDialog')))
+        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, 'typingChallengeDialog')))
         im = self._get_challenge_image()
         text = read_from_challenge_image(im)
         print(f'Detected text: "{text}"')
