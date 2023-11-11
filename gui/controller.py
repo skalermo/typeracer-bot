@@ -10,6 +10,18 @@ class Controller:
         self.bot.start_race()
         print('Race finished.')
 
+    def solve_challenge(self):
+        if not self.bot.is_challenged():
+            print('No challenge detected.')
+            return
+        if self.bot.is_challenge_not_accepted():
+            print('Accepting challenge...')
+            self.bot.accept_challenge()
+        else:
+            print('Challenge already accepted. Proceeding...')
+        print('Solving challenge...')
+        self.bot.solve_challenge()
+
     def get_text(self):
         print('Getting text...')
         self.bot.get_text()
