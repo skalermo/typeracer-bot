@@ -3,8 +3,8 @@ from pathlib import Path
 import numpy as np
 import cv2
 import torch
-from challenge_solver.model import CRNN
-from challenge_solver.utils import correct_prediction, decode_predictions
+from challenge_solver.training.src.model import CRNN
+from challenge_solver.training.src.utils import correct_prediction, decode_predictions
 
 
 def read_from_challenge_image(image: np.array) -> str:

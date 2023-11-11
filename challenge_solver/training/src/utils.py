@@ -1,3 +1,7 @@
+import os
+import time
+
+import torch
 import torch.nn.functional as F
 
 
@@ -8,6 +12,17 @@ vocabulary = ['~', ' ', '!', '"', "'", '(', ')', ',', '-', '.', ':', ';', '?',
 idx2char = {k: v for k, v in enumerate(vocabulary, start=0)}
 char2idx = {v: k for k, v in idx2char.items()}
 SEPARATOR = '~'
+
+
+def encode_text_batch(text_batch):
+    text_batch_targets_lens = [len(text) for text in text_batch]
+    text_batch_targets_lens = torch.IntTensor(text_batch_targets_lens)
+
+    text_batch_concat = ''.join(text_batch)
+    text_batch_targets = [char2idx[c] for c in text_batch_concat]
+    text_batch_targets = torch.IntTensor(text_batch_targets)
+
+    return text_batch_targets, text_batch_targets_lens
 
 
 def decode_predictions(text_batch_logits):
@@ -40,3 +55,17 @@ def correct_prediction(word: str):
     parts = [remove_duplicates(part) for part in parts]
     corrected_word = ''.join(parts)
     return corrected_word
+
+
+def find_last_exp_dir(exp_name: str, top_dir: str = 'runs') -> str:
+    # find the most recently created dir
+    models_dir = max(x[0] for x in os.walk(top_dir) if exp_name in x[0])
+    return models_dir
+
+
+def setup_exp_dirs(exp_name: str) -> str:
+    experiment_name = f'{exp_name}_{int(time.time())}'
+    path = f'runs/{experiment_name}'
+    if not os.path.exists(path):
+        os.makedirs(path)
+    return path
