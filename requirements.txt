@@ -4,3 +4,4 @@ pynput==1.7.6
 pyside2==5.13.2
 pytesseract==0.3.10
 selenium==4.15.2
+torch==2.1.0
