@@ -5,13 +5,13 @@ import torch
 import torch.nn.functional as F
 
 
-vocabulary = ['~', ' ', '!', '"', "'", '(', ')', ',', '-', '.', ':', ';', '?',
-              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-              '`',
-              'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+SEPARATOR = '~'
+vocabulary = [SEPARATOR] + [' ', '!', '"', "'", '(', ')', ',', '-', '.', ':', ';', '?',
+                            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                            '`',
+                            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 idx2char = {k: v for k, v in enumerate(vocabulary, start=0)}
 char2idx = {v: k for k, v in idx2char.items()}
-SEPARATOR = '~'
 
 
 def encode_text_batch(text_batch):
