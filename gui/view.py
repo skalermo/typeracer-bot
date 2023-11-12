@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'view.ui'
+## Form generated from reading UI file 'viewyVnOeC.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.0
+## Created by: Qt User Interface Compiler version 5.15.11
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-                            QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-                           QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-                           QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PySide2.QtCore import *  # type: ignore
+from PySide2.QtGui import *  # type: ignore
+from PySide2.QtWidgets import *  # type: ignore
 
 
 class Ui_MainWindow(object):
@@ -65,13 +62,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.speedLine)
 
+
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.autoModeBtn = QPushButton(self.verticalLayoutWidget)
-        self.autoModeBtn.setObjectName(u"autoModeBtn")
-        self.autoModeBtn.setEnabled(False)
+        self.solveChallengeBtn = QPushButton(self.verticalLayoutWidget)
+        self.solveChallengeBtn.setObjectName(u"solveChallengeBtn")
+        self.solveChallengeBtn.setEnabled(True)
 
-        self.verticalLayout.addWidget(self.autoModeBtn)
+        self.verticalLayout.addWidget(self.solveChallengeBtn)
 
         self.closeAll = QPushButton(self.verticalLayoutWidget)
         self.closeAll.setObjectName(u"closeAll")
@@ -87,13 +85,12 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
-
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.getTextBtn.setText(QCoreApplication.translate("MainWindow", u"Get text", None))
         self.startRaceBtn.setText(QCoreApplication.translate("MainWindow", u"Start race", None))
-        self.autoModeBtn.setText(QCoreApplication.translate("MainWindow", u"Auto mode", None))
+        self.solveChallengeBtn.setText(QCoreApplication.translate("MainWindow", u"Solve challenge", None))
         self.closeAll.setText(QCoreApplication.translate("MainWindow", u"Close all", None))
     # retranslateUi

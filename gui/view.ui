@@ -85,12 +85,12 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="autoModeBtn">
+      <widget class="QPushButton" name="solveChallengeBtn">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="text">
-        <string>Auto mode</string>
+        <string>Solve challenge</string>
        </property>
       </widget>
      </item>

@@ -1,0 +1,14 @@
+dataclasses==0.6
+fire==0.5.0
+fonttools==4.12.1
+imgaug==0.4.0
+lmdb==0.98
+loguru==0.7.2
+pytest==7.4.3
+recommonmark==0.6.0
+sphinx-markdown-tables==0.0.17
+sphinx-rtd-theme==1.3.0
+streamlit==1.24.1
+text-renderer==0.1.0
+tqdm==4.66.1
+typer==0.9.0
